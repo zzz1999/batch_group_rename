@@ -2,8 +2,8 @@ Batch rename all child groups under a selected group using a clear, hierarchical
 
 ## How to Use
 
-1. Select a group in the **Outliner**
-2. Go to **Tools > Batch Rename Child Groups**, or right-click the group and select **Batch Rename Child Groups**
+1. Right-click a group in the **Outliner**
+2. Select **Batch Rename Child Groups** from the context menu
 3. Configure the options in the dialog, then click **Confirm**
 
 ## Naming Convention

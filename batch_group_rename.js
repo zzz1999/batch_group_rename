@@ -98,7 +98,7 @@
 
 	BBPlugin.register(PLUGIN_ID, {
 		title: 'Batch Group Rename',
-		author: 'zzz1999',
+		author: 'Your Name',
 		icon: 'drive_file_rename_outline',
 		description: 'Batch rename all child groups under a selected group with hierarchical numbering (e.g. arm1, arm2, arm2_1, arm2_1_1).',
 		version: '1.0.0',
@@ -121,10 +121,10 @@
 				},
 			});
 
+			// Add to group right-click context menu only
 			if (Group.prototype.menu && Group.prototype.menu.structure) {
 				Group.prototype.menu.structure.push(action);
 			}
-			MenuBar.addAction(action, 'tools');
 		},
 
 		onunload() {
@@ -132,7 +132,6 @@
 				const idx = Group.prototype.menu.structure.indexOf(action);
 				if (idx !== -1) Group.prototype.menu.structure.splice(idx, 1);
 			}
-			MenuBar.removeAction('tools.batch_group_rename_action');
 			if (action) action.delete();
 		},
 	});
