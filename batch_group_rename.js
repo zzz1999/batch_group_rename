@@ -98,13 +98,17 @@
 
 	BBPlugin.register(PLUGIN_ID, {
 		title: 'Batch Group Rename',
-		author: 'Your Name',
+		author: 'zzz1999',
 		icon: 'drive_file_rename_outline',
 		description: 'Batch rename all child groups under a selected group with hierarchical numbering (e.g. arm1, arm2, arm2_1, arm2_1_1).',
 		version: '1.0.0',
 		min_version: '4.8.0',
 		variant: 'both',
 		tags: ['Utility'],
+		creation_date: '2026-03-20',
+		has_changelog: false,
+		repository: 'https://github.com/zzz1999/batch_group_rename',
+		bug_tracker: 'https://github.com/zzz1999/batch_group_rename/issues',
 
 		onload() {
 			action = new Action('batch_group_rename_action', {
@@ -121,10 +125,10 @@
 				},
 			});
 
-			// Add to group right-click context menu only
 			if (Group.prototype.menu && Group.prototype.menu.structure) {
 				Group.prototype.menu.structure.push(action);
 			}
+			MenuBar.addAction(action, 'tools');
 		},
 
 		onunload() {
@@ -132,6 +136,7 @@
 				const idx = Group.prototype.menu.structure.indexOf(action);
 				if (idx !== -1) Group.prototype.menu.structure.splice(idx, 1);
 			}
+			MenuBar.removeAction('tools.batch_group_rename_action');
 			if (action) action.delete();
 		},
 	});
